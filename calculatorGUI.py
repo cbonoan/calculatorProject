@@ -1,22 +1,62 @@
 from tkinter import *
-from calcFuncs import *
+
+class Calc():
+    def __init__(self):
+        self.total = 0
+        self.current = "" 
+        self.new_num = True
+        self.oper_pending = False 
+        self.oper = "" 
+        self.equal = False 
+
+    def display(self,value):
+        output.delete(0,END)
+        output.insert(0,value)
+    
+    def back(self):
+        self.current = self.current[:-1]
+        self.display(self.current)
+
+    def negate(self,num):
+        temp = -1*float(num)
+        self.display(temp)
+
+    def press(self,num):
+        self.equal=False
+        temp = str(num)
+        self.current += temp
+        output.insert(END,temp)
+    
+    def calc_total(self,expression):
+        try:
+            temp = str(eval(expression))
+            self.display(temp)
+        except SyntaxError:
+            self.display("Error")
+        except ZeroDivisionError:
+            self.display("Cannot Divide By Zero")
 
 if __name__=="__main__": 
+    express = Calc()
     gui = Tk()
     gui.geometry('300x250')
     gui.title("Scientific Calculator")
     gui.configure(bg="light blue")
 
-    equation = StringVar()
     #output field 
-    output = Entry(gui, textvariable=equation)
+    output = Entry(gui, bg="light gray")
     output.grid(columnspan=5, ipadx=90)
+    
+    operators = ["/","*","-","+"]
+    numbers = [0,1,2,3,4,5,6,7,8,9]
 
-    buttonClear = Button(gui, text="Clear")
+    buttonClear = Button(gui, text="BKSP",
+    command = lambda: express.back())
     buttonClear.grid(row=1,column=0)
     buttonCancel = Button(gui, text="Cancel")
     buttonCancel.grid(row=1,column=2)
-    buttonEnter = Button(gui, text=" = ", width=4)
+    buttonEnter = Button(gui, text=" = ", width=4,
+    command = lambda: express.calc_total(output.get()))
     buttonEnter.grid(row=1,column=4)
     #buttons exp,ln,sqrt,sq
     buttonExp = Button(gui,text="exp",height=1,width=4)
@@ -27,41 +67,35 @@ if __name__=="__main__":
     buttonSqrt.grid(row=4, column=0)
     buttonSq = Button(gui,text="sq",height=1,width=4)
     buttonSq.grid(row=5, column=0)
-    #buttons 1-9
-    button1 = Button(gui, text=" 1 ",height=1,width=4)
-    button1.grid(row=2,column=1,pady=5)
-    button2 = Button(gui, text=" 2 ",height=1,width=4)
-    button2.grid(row=2,column=2)
-    button3 = Button(gui, text=" 3 ",height=1,width=4)
-    button3.grid(row=2,column=3)
-    button4 = Button(gui, text=" 4 ",height=1,width=4)
-    button4.grid(row=3,column=1,pady=5)
-    button5 = Button(gui, text=" 5 ",height=1,width=4)
-    button5.grid(row=3,column=2)
-    button6 = Button(gui, text=" 6 ",height=1,width=4)
-    button6.grid(row=3,column=3)
-    button7 = Button(gui, text=" 7 ",height=1,width=4)
-    button7.grid(row=4,column=1)
-    button8 = Button(gui, text=" 8 ",height=1,width=4)
-    button8.grid(row=4,column=2,pady=5)
-    button9 = Button(gui, text=" 9 ",height=1,width=4)
-    button9.grid(row=4,column=3)
-    button0 = Button(gui, text=" 0 ",height=1,width=4)
-    button0.grid(row=5,column=1,pady=5)
+    #buttons 0-9 and operators
+    num_bttns = []
+    opers = []
+    i = 0
+    for row in range(2,5):
+        for col in range(1,4):
+            num_bttns.append(Button(gui,text = numbers[i],height=1,width=4,
+            command = lambda x = numbers[i]: express.press(x)))
+            num_bttns[i].grid(row=row,column=col, pady=5)
+            i += 1
+    num_bttns.append(Button(gui,text=numbers[i],height=1,width=4,
+    command=lambda x = numbers[i]: express.press(x)))
+    num_bttns[i].grid(row=5,column=1,pady=5)
+
+    row=2
+    index=0
+    for i in operators:
+        opers.append(Button(gui,text=i,height=1,width=4,
+        command = lambda x=i: express.press(x)))
+        opers[index].grid(row=row,column=4,pady=5)
+        row += 1
+        index += 1
     #buttons decimal and +/-
-    buttonDec =  Button(gui, text=" . ",height=1,width=4)
+    buttonDec =  Button(gui, text=" . ",height=1,width=4,
+    command=lambda: express.press("."))
     buttonDec.grid(row=5,column=2)
-    buttonNeg =  Button(gui, text=" +/- ",height=1,width=4)
+    buttonNeg =  Button(gui, text=" +/- ",height=1,width=4,
+    command=lambda: express.negate(output.get()))
     buttonNeg.grid(row=5,column=3)
-    #arithmetic buttons 
-    buttonAdd = Button(gui,text=" + ", height=1,width=4)
-    buttonAdd.grid(row=5,column=4)
-    buttonSub = Button(gui,text=" - ", height=1,width=4)
-    buttonSub.grid(row=4,column=4)
-    buttonMul = Button(gui,text=" * ", height=1,width=4)
-    buttonMul.grid(row=3,column=4)
-    buttonDiv = Button(gui,text=" / ", height=1,width=4)
-    buttonDiv.grid(row=2,column=4)
     #trig buttons 
     buttonSin = Button(gui,text=" sin ", height=1,width=4)
     buttonSin.grid(row=6,column=1,pady=5) 
