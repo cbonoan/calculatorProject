@@ -1,0 +1,35 @@
+#body {
+    background-color:  #dff1ff;
+}
+
+#sqrt{
+    font-size: 0.75rem;
+}
+.other {
+    margin: 5px;
+    width: 3.8rem;
+    text-align: center;
+}
+#row1{
+    margin-left: 75px;
+    margin-right: 75px;
+}
+#row6{
+}
+
+#output{
+    font-family: 'Lato', sans-serif;
+}
+
+.num {
+    margin: 15px;
+    width: 3rem;
+    height: 2.5rem;
+}
+
+#numPad, .other {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
