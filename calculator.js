@@ -43,3 +43,12 @@ function calc(){
         document.getElementById("output").value = ""
     }
 }
+
+function trig(){
+    //TODO
+}
+
+function functions(){
+    //TOOD
+    //sq,sqrt,exp,ln
+}
