@@ -15,38 +15,43 @@
     <div class="text-center"><input id="output" type="text"></div>
     <!-- buttons -->
     <div class="container" id="numPad"> 
-        <div class="row">
-            <input class="other" type="button" id="clear" value="Clear" onclick="cl()">
-            <input class="other" type="button" id="cancel" value="BKSP" onclick="cancel()">
-            <input class="other" type="button" id="equal" value="=" onclick="">
+        <div class="row" id="row1">
+            <input class="other btn btn-light" type="button" id="clear" value="Clear" onclick="cl()">
+            <input class="other btn btn-light" type="button" id="cancel" value="BKSP" onclick="cancel()">
+            <input class="other btn btn-light" type="button" id="equal" value="=" onclick="calc()">
         </div>
         <div class="row">            
-            <input class="num" id="exp" value="EXP" type="button" onclick="">
-            <input class="num" id="1" value="1"type="button" onclick="dis('1')">
-            <input class="num" id="2" value="2"type="button" onclick="dis('2')">
-            <input class="num" id="3" value="3"type="button" onclick="dis('3')">           
-            <input class="num" id="/" value="/"type="button" onclick="">
+            <input class="num btn btn-light" id="exp" value="EXP" type="button" onclick="">
+            <input class="num btn btn-light" id="1" value="1"type="button" onclick="dis('1')">
+            <input class="num btn btn-light" id="2" value="2"type="button" onclick="dis('2')">
+            <input class="num btn btn-light" id="3" value="3"type="button" onclick="dis('3')">           
+            <input class="num btn btn-light" id="/" value="/"type="button" onclick="dis('/')">
         </div>
         <div class="row">
-            <input class="num" id="ln" value="LN" type="button" onclick="">
-            <input class="num" id="4" value="4"type="button" onclick="dis('4')">
-            <input class="num" id="5" value="5"type="button" onclick="dis('5')">
-            <input class="num" id="6" value="6"type="button" onclick="dis('6')">
-            <input class="num" id="*" value="*" type="button" onclick="">
+            <input class="num btn btn-light" id="ln" value="LN" type="button" onclick="">
+            <input class="num btn btn-light" id="4" value="4"type="button" onclick="dis('4')">
+            <input class="num btn btn-light" id="5" value="5"type="button" onclick="dis('5')">
+            <input class="num btn btn-light" id="6" value="6"type="button" onclick="dis('6')">
+            <input class="num btn btn-light" id="*" value="*" type="button" onclick="dis('*')">
         </div>
         <div class="row">
-            <input class="num" id="sqrt" value="SQRT" type="button" onclick="">
-            <input class="num" id="7" value="7"type="button" onclick="dis('7')">
-            <input class="num" id="8" value="8"type="button" onclick="dis('8')">
-            <input class="num" id="9" value="9"type="button" onclick="dis('9')">
-            <input class="num" id="-" value="-" type="button" onclick="">
+            <input class="num btn btn-light" id="sqrt" value="SQRT" type="button" onclick="">
+            <input class="num btn btn-light" id="7" value="7"type="button" onclick="dis('7')">
+            <input class="num btn btn-light" id="8" value="8"type="button" onclick="dis('8')">
+            <input class="num btn btn-light" id="9" value="9"type="button" onclick="dis('9')">
+            <input class="num btn btn-light" id="-" value="-" type="button" onclick="('-')">
         </div>
         <div class="row">
-            <input class="num" id="sq" value="SQ" type="button" onclick="">
-            <input class="num" id="0" value="0" type="button" onclick="dis('0')">
-            <input class="num" id="." value="." type="button" onclick="dis('.')">
-            <input class="num" id ="+/-" value="+/-" type="button" onclick="">
-            <input class="num" id="+" value="+" type="button" onclick="">
+            <input class="num btn btn-light" id="sq" value="SQ" type="button" onclick="">
+            <input class="num btn btn-light" id="0" value="0" type="button" onclick="dis('0')">
+            <input class="num btn btn-light" id="." value="." type="button" onclick="dis('.')">
+            <input class="num btn btn-light" id ="neg" value="+/-" type="button" onclick="neg()">
+            <input class="num btn btn-light" id="+" value="+" type="button" onclick="dis('+')">
+        </div>
+        <div class="row" id="row6">
+            <input class="other btn btn-light" id="sin" value="SIN" type="button" onclick="">
+            <input class="other btn btn-light" id="cos" value="COS" type="button" onclick="">
+            <input class="other btn btn-light" id="tan" value="TAN" type="button" onclick="">
         </div>
     </div>
     
@@ -54,6 +59,7 @@
 
 
     <script src="calculator.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
