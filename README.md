@@ -1,6 +1,5 @@
 # calculatorProject
-Creating scientific calculators for three different programming languages: Python, Perl, and JS
+Creating scientific calculators for two different programming languages: Python and JS
 
-Python calculator is located on the 'new' branch.
-
-HTML,CSS, and JS calculator located on the 'javaScript' branch. 
+# Introduction 
+For our Programming Languages class, our final project was to create a calculator using two languages of our choice. 
