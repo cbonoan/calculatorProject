@@ -1,6 +1,8 @@
 # calculatorProject
 JS calculator 
 
-# Instructions For Use 
+# Requirements
+- Any broswer will work for running this caluclator.
 
-Download the files and open up index.html in your browser. 
+# Installation and Usage
+- Download the files or clone the repository and open up calculator.html in your browser. 
